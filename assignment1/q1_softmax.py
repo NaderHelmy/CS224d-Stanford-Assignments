@@ -21,6 +21,8 @@ def softmax(x):
     """
 
     ### YOUR CODE HERE
+
+    ##if statement to deal with vector inputs 
     if len(x.shape) == 1:
 
         expo = np.exp(x)
