@@ -21,10 +21,20 @@ def softmax(x):
     """
 
     ### YOUR CODE HERE
-    
+    if len(x.shape) == 1:
+
+        expo = np.exp(x)
+        somax = expo / np.sum(expo)
+    else:
+
+	    N = x.shape[0]
+	    x -= np.max(x, axis=1).reshape(N, 1)
+	    expo = np.exp(x)
+	    somax = expo / np.sum(expo, axis=1).reshape(N, 1)
+    	
     ### END YOUR CODE
     
-    return x
+    return somax
 
 def test_softmax_basic():
     """
